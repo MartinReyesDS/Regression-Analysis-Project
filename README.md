@@ -1,64 +1,81 @@
-# Phase 2 Project
+# Regression Analysis for KC House Data
 
-Another module down--you're almost half way there!
+<img src="images/USAA-logo.png" style="width:500px;height:170px"/>
 
-All that remains in Phase 2 is to put our newfound data science skills to use with a large project! This project should take 20 to 30 hours to complete.
+**Author**: Martin Reyes
 
-## Project Overview
+# Project Description:
 
-For this project, you will use regression modeling to analyze house sales in a northwestern county.
+Analyzing data and using linear regression models to come up with recommendations for USAA's home insurance premiums.
 
-### The Data
 
-This project uses the King County House Sales dataset, which can be found in  `kc_house_data.csv` in the data folder in this repo. The description of the column names can be found in `column_names.md` in the same folder. As with most real world data sets, the column names are not perfectly described, so you'll have to do some research or use your best judgment if you have questions about what the data means.
+<hr style="border:1px solid gray"> </hr>
 
-It is up to you to decide what data from this dataset to use and how to use it. If you are feeling overwhelmed or behind, we recommend you ignore some or all of the following features:
+## Overview
 
-* date
-* view
-* sqft_above
-* sqft_basement
-* yr_renovated
-* zipcode
-* lat
-* long
-* sqft_living15
-* sqft_lot15
+This project analyzes which house features have a linear relationship with the house's price to determine whether USAA's home insurance premiums are valid. The analysis shows that USAA's premium for a house should have have a relationship with the home's square footage, King County grade, and position above or below the 47.5° N latitude line. It also shows that there should be no relationship with the square footage of the home's lot, the time the house was sold, or the condition grade given in the dataset. USAA can use the insights in this project to determine whether changes need to be made to produce valid home insurance premiums.
 
-### Business Problem
+<hr style="border:1px solid gray"> </hr>
 
-It is up to you to define a stakeholder and business problem appropriate to this dataset.
+## Business Problem
 
-If you are struggling to define a stakeholder, we recommend you complete a project for a real estate agency that helps homeowners buy and/or sell homes. A business problem you could focus on for this stakeholder is the need to provide advice to homeowners about how home renovations might increase the estimated value of their homes, and by what amount.
+USAA wants to determine which house features should affect their home insurance premiums. In this project, linear regression models will be used to analyze which home features (square footage, condition, etc.) best determine house prices. Recommendations will be made to determine which features should raise, lower, or not affect premiums.
 
-## Deliverables
+<hr style="border:1px solid gray"> </hr>
 
-There are three deliverables for this project:
+## Data
 
-* A **GitHub repository**
-* A **Jupyter Notebook**
-* A **non-technical presentation**
+This project uses the King County House Sales dataset, which can be found in  `kc_house_data.csv` in the data folder in this repo. The description of the column names can be found in `column_names.md` in the same folder. A cleaned version of this data is saved as `clean_data.csv`
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic for instructions on creating and submitting your deliverables. Refer to the rubric associated with this assignment for specifications describing high-quality deliverables.
+<hr style="border:1px solid gray"> </hr>
 
-### Key Points
+## Methods
 
-* **Your deliverables should explicitly address each step of the data science process.** Refer to [the Data Science Process lesson](https://github.com/learn-co-curriculum/dsc-data-science-processes) from Topic 19 for more information about process models you can use.
+This project uses the OSEMN Process which has the following steps: Obtain the Data, Scrub the Data, Explore the Data, Model the Data, and Interpret the Data. This process allows for an organized workflow to allow anyone to easily keep track of how insights and models were made. It's important to note that this model is iterative and not a strict, step-by-step process. This allows for improvements to be made during EDA and modeling.
 
-* **Your Jupyter Notebook should demonstrate an iterative approach to modeling.** This means that you begin with a basic model, evaluate it, and then provide justification for and proceed to a new model. After you finish refining your models, you should provide 1-3 paragraphs discussing your final model - this should include interpreting at least 3 important parameter estimates or statistics.
+## Key Insights
 
-* **Based on the results of your models, your notebook and presentation should discuss at least two features that have strong relationships with housing prices.**
+![Heatmap](images/heatmap.png)
 
-## Getting Started
+### Features that are most correlated with price:
+* **square footage, KC grade, square footage of 15 nearest neighbors, bathrooms**
+   
+### Features we know have no linear relationship with price:
+* **condition, date/month/quarter sold, lot square footage, square footage of 15 nearest neighbors' lots**
+    
+### Best performing model suggests:
+* **square footage, KC grade, and position above or below 47.5° N latitude all have a strong relationship with price**
 
-Start on this project by forking and cloning [this project repository](https://github.com/learn-co-curriculum/dsc-phase-2-project) to get a local copy of the dataset.
+### Most trusted model suggests:
+* **square footage of 15 nearest neighbors and KC grade have some linear relationship with price**
 
-We recommend structuring your project repository similar to the structure in [the Phase 1 Project Template](https://github.com/learn-co-curriculum/dsc-project-template). You can do this either by creating a new fork of that repository to work in or by building a new repository from scratch that mimics that structure.
+<hr style="border:1px solid gray"> </hr>
 
-## Project Submission and Review
+### Next Steps
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic to learn how to submit your project and how it will be reviewed. Your project must pass review for you to progress to the next Phase.
+Further analyses can help better understand ratings, genre, and profitability:
+* **Focus on smaller subsets of houses (smaller price range, age range etc.)**
+* **More EDA on the features**
+* **Use advanced feature selection/engineering techniques to produce a better linear regression model that both meets its assumptions and explains variation in price**
+* **Develop a ML model to accurately predict house prices**
 
-## Summary
+<hr style="border:1px solid gray"> </hr>
 
-This project will give you a valuable opportunity to develop your data science skills using real-world data. The end-of-phase projects are a critical part of the program because they give you a chance to bring together all the skills you've learned, apply them to realistic projects for a business stakeholder, practice communication skills, and get feedback to help you improve. You've got this!
+## For More Information
+
+Please review the full EDA and modeling in [the Jupyter Notebook](./EDA_and_Modeling.ipynb) or the [presentation](./Regression_Analysis_Presentation.pdf).
+
+For any additional questions, please contact **Martin Reyes** at **martinreyes.eng@gmail.com**
+
+<hr style="border:1px solid gray"> </hr>
+
+## Repository Structure
+
+```
+├── data
+├── images
+├── EDA_and_Modeling.ipynb
+├── Obtaining_and_cleaning_data.ipynb
+├── README.md
+├── Regression_Analysis_Presentation.pdf
+```
